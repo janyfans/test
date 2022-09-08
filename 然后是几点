@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+int main()
+{
+    int time, minutes, hour,plus;
+    scanf("%d %d",&time,&plus);
+    
+    minutes = time % 100;       //20
+    hour = time / 100;          //11
+    
+    time = plus + hour * 60 + minutes;  //110 + 11 * 60 + 20 = 790
+    hour = time / 60;   //790/60
+    minutes = time % 60;
+    time = hour * 100 + minutes;
+    if(hour == 0){
+        if(minutes < 10){
+            printf("%d0%d",hour, minutes);
+        }else{
+        printf("%d%d",hour,minutes);
+        }
+    }else{
+        printf("%d",time);
+    }
+        return 0;
+}
