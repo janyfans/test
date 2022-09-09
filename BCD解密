@@ -1,0 +1,19 @@
+#include<stdio.h>
+
+int main()
+{
+    int BCDnum,Ten_,Shi,Ge;
+    scanf("%d",&Ten_);
+    if(Ten_>=0 && Ten_<=153)
+    {
+        if(Ten_ % 16 < 10)
+        {
+            Shi = Ten_ / 16;
+            Ge = Ten_ % 16;
+            BCDnum = Shi * 10 + Ge;
+            printf("%d",BCDnum);
+        }
+    }
+    
+    return 0;
+}
