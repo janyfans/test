@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main()
+{
+	int A = 1, B = 1, sum[100];
+	int n = 0;
+	do
+	{
+		scanf("%d %d",&A,&B);
+		sum[n] = A + B;
+		n++;
+	}while(A != 0 && B != 0);
+	for(int i = 0; i < n - 1; i++)
+	{
+		printf("%d\n",sum[i]);
+	}
+	return 0;
+	
+}
