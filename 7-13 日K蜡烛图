@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+int main()
+{
+    float Open = 0,High = 0,Low = 0,Close = 0;
+    int judge = 0;
+    
+    scanf("%f %f %f %f",&Open,&High,&Low,&Close);
+    //判断O和C的关系
+    if(Open > Close)
+        printf("BW-Solid");
+    else if(Open == Close)
+        printf("R-Cross");
+    else if(Open < Close)
+        printf("R-Hollow");
+    //判断是L还是H还是全都有
+    if(Low < Open && Low < Close)
+        judge += 1;
+    if(High > Open && High >Close)
+        judge += 2;
+    //结果认定
+    if(judge == 1)
+        printf(" with Lower Shadow");
+    else if(judge == 2)
+        printf(" with Upper Shadow");
+    else if(judge == 3)
+        printf(" with Lower Shadow and Upper Shadow");
+    
+    return 0;
+}
