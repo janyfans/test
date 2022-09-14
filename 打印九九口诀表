@@ -1,0 +1,28 @@
+#include<stdio.h>
+
+int main()
+{
+    int i, j, n = 0,p = 0;
+    scanf("%d",&n);
+    if(n>=1 && n<=9){
+        for(i =1;i<=n;i++){
+            for(j = 1;j<=n;j++){
+                p = i * j;
+                if(i == j){
+                    printf("%d*%d=%-4d",i,j,p);
+                    if(i != n){
+                        printf("\n");
+                    }
+                    break;
+                }
+                else if(i < j){
+                    printf("%d*%d=%-4d",i,j,p);
+                }
+                else if(i > j){
+                    printf("%d*%d=%-4d",j,i,p);
+                }
+            }
+        }
+    }
+    return 0;
+}
