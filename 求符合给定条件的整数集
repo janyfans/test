@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+int main()
+{
+    int a = 0;
+    int b,c,d,e,t = 0;
+    scanf("%d",&a);
+    if(a <= 6){
+        for(b=a;b<a+4;b++){
+            for(c=a;c<a+4;c++){
+                for(d=a;d<a+4;d++){
+                    if(b!=c && b!=d && c!=d){
+                        printf("%d%d%d",b,c,d);
+                        t++;
+                        if(t%6 == 0){
+                            if(t == 24)
+                                break;
+                            printf("\n");
+                        }
+                        else
+                            printf(" ");
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+    return 0;
+}
