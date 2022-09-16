@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main()
+{
+	int money = 300,leftover=0;
+	int ys = 0,sum = 0,flag = 0,fi = 0;
+	for(int i=1; i<=12;i++){
+		scanf("%d",&ys);
+		leftover = money - ys;
+		if(leftover >= 100){
+			sum += leftover / 100;
+			leftover = leftover % 100;
+		
+		}else if(leftover < 0){
+			flag = i;
+			break;
+		}
+		money = leftover + 300;
+	}
+	if(flag == 0){
+		fi = leftover + sum * 100 * 1.2; 
+		printf("%d",fi);
+	}
+	else{
+		fi = flag;
+		printf("-%d",fi);
+	}
+	
+	return 0;	
+}
