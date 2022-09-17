@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int main()
+{
+	int m[101] = {0};
+	int mid = 0, p = 0;
+	int com = 0;
+	//两个多项式
+	scanf("%d %d",&mid,&p);
+	m[mid] += p;
+	com = mid;
+	do{
+		scanf("%d %d",&mid,&p);
+		m[mid] += p;
+		
+	}while(mid != 0);
+	scanf("%d %d",&mid,&p);
+	m[mid] += p;
+	//判断最大项
+	if(com < mid){
+		com = mid;
+	}
+	do{
+		scanf("%d %d",&mid,&p);
+		m[mid] += p;
+		
+	}while(mid != 0);
+	//输出多项式
+	for(int i = com; i>=0; i--){
+		if(i == com && m[i] != 0){
+			printf("%dx%d",m[i], i);
+		}
+		if(i == 0 && m[i] > 0){
+			printf("+%d",m[i]);
+			break;
+		}
+		if(i == 0 && m[i] < 0){
+			printf("-%d",m[i]);
+			break;
+		}
+		if(i == 1 && m[i] > 0){
+			printf("+%d",m[i]);
+		}
+		if(i == 1 && m[i] < 0){
+			printf("-%d",m[i]);
+		}
+		
+		if(i<com && m[i] > 0 && i != 1){
+			printf("+%dx%d",m[i],i);
+		}
+		if(i<com && m[i] < 0 && 1 != 1){
+			printf("-%dx%d",m[i],i);
+		}
+	}
+	
+	
+	return 0;	
+}
