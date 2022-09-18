@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main()
+{
+    int q, t, sum = 0;
+	int flag = 0;
+	int i = 0,a[100] = {0};
+	scanf("%d",&q);
+	getchar();
+	char str;
+	while((str = getchar()) != '\n'){
+		if(str>='0' && str <('0' + q)){
+			sum = sum * q + (str - '0');
+		}
+	}
+	scanf("%d",&t);
+	if(t == 10){
+		flag = 10;
+	}
+	else{
+		while(sum != 0){
+			a[i] = sum % t;
+			sum /= t;
+			i++;
+		}
+		
+	}
+	
+	if(flag == 10){
+		printf("%d",sum);
+	}else{
+		for(int j = i - 1; j >= 0; j--){
+			printf("%d",a[j]);
+		}
+	}
+	
+	return 0;	
+}
