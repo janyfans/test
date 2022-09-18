@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main()
+{
+    int week, school, home;
+	int flag = 0, judge = 0;
+	int count = 0,max = 0;
+	int week_m = 0;
+	for(week = 1;week<=7;week++){
+		scanf("%d %d",&school,&home);
+		//如果超过8小时
+		if(school + home > 8 && judge == 0){
+			flag = week;
+			judge = 1;
+		}//如果没超过8小时
+		else if(school + home <= 8 && judge == 0){
+			count ++;
+		}
+		//判断哪个是最大的
+		if(max<school + home && school + home > 8){
+			max = school + home;
+			week_m = week;
+		}
+	}
+	if(count == 7){
+		printf("0");
+	}else if(week_m != 0){
+		printf("%d",week_m);
+	}
+	return 0;	
+}
