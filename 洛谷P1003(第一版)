@@ -1,0 +1,33 @@
+#include<stdio.h>
+
+long int m[200001][200001] = {0};
+
+int main()
+{
+	int n = 0;
+	long int a,b,g,k;
+	int x, y, di = 0;
+
+	scanf("%d",&n);
+
+	for(int i = 0;i<n;i++){
+		scanf("%ld %ld %ld %ld",&a,&b,&g,&k);
+		//开始铺地毯,若为最上则将最上赋值
+		for(int p = 0; p<g; p++){
+			for(int q = 0; q<k; q++){
+				m[a+p][b+q] = i+1;
+			}
+		}
+		if(i == n-1){
+			scanf("%d %d",&x,&y);
+			if(m[x][y] == 0){
+				di = -1;
+			}else{
+				di = m[x][y];
+			}
+		}
+	}
+	
+	printf("%d",di);
+	return 0;
+}
