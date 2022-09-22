@@ -1,0 +1,57 @@
+#include<stdio.h>
+#define RUBISH 10;
+
+int main()
+{
+	
+	int s,v;
+	scanf("%d %d",&s,&v);
+	int min=0,Hour=0,Min;
+	min += s/v;
+	float t = s/(v*1.0);
+	//此处进行四舍五入
+	if(t > min){
+		min++;
+	}
+	//加上倒垃圾的时间
+	min += RUBISH;
+	//判断是前一天还是后一天
+	if(min < 480){
+		Hour = (480-min)/60;
+		Min = (480-min)%60;
+	}else if(min == 480){
+		Hour = 0;
+		Min = 0;
+	}else if(min > 480){
+		Hour = (24*60-(min-480))/60;
+		Min = (24*60-(min-480))/60;
+	}
+	//判断Hour和Min是否为个位数
+	if(Hour == 0 && Min == 0)
+		printf("00:00");
+	else if(Hour == 0 && Min != 0){
+		if(Min < 10)
+			printf("00:0%d",Min);
+		else
+			printf("00:%d",Min);
+	}else if(Hour != 0 && Min == 0){
+		if(Hour < 10)
+			printf("0%d:00",Hour);
+		else
+			printf("%d:00",Hour);
+	}else if(Hour != 0 && Min != 0){
+		if(Hour < 10){
+			if(Min < 10)
+				printf("0%d:0%d",Hour,Min);
+			else
+				printf("0%d:%d",Hour,Min);
+		}else{
+			if(Min < 10)
+				printf("%d:0%d",Hour,Min);
+			else
+				printf("%d:%d",Hour,Min);
+		}
+	}
+	
+	return 0;
+}
