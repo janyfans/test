@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main()
+{
+	int x;
+	int A=0,U=0,B=0,Z=0;
+	scanf("%d",&x);
+	if(x%2==0 && x>4 && x<=12){
+		A=1;U=1;
+	}else
+		Z=1;
+	if(x%2==0 || (x>4 && x<=12)){
+		B=1;U=1;
+		if(x%2==0 && x>4 && x<=12)
+			B=0;
+	}
+	printf("%d %d %d %d",A,U,B,Z);
+	return 0;
+}
