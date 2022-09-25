@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+	int n,a[3][2],min = 9999999;//0为表示数量，1位表示价格
+	scanf("%d",&n);
+	for(int i=0; i<3; i++){
+		scanf("%d %d",&a[i][0],&a[i][1]);
+	}
+	int buy[3] = {0};
+	for(int i=0; i<3; i++){
+		if(n%a[i][0] != 0){
+			buy[i] = n/a[i][0] + 1;
+		}else{
+			buy[i] = n/a[i][0];
+		}
+		buy[i] *= a[i][1];
+		if(min > buy[i])
+			min = buy[i];
+	}
+	printf("%d",min);
+	return 0;
+}
