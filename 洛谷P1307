@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main()
+{
+	long int num,mun=0,x,t=1;
+	scanf("%ld",&num);
+	while((num/t)!=0){
+	    t*=10;
+	}
+	t/=10;
+	if(num == 0){
+		mun = 0;
+	}else if(num>0)
+	while(num!=0){
+		x = num % 10;
+		num /= 10;
+		mun += t * x;
+		t /= 10;
+	}else{
+		int num_1 = -num;
+		while(num_1!=0){
+			x = num_1 % 10;
+			num_1 /= 10;
+			mun += t * x;
+			t /= 10;
+		}
+		mun = -mun;
+	}
+	printf("%ld",mun);
+	return 0;
+}
