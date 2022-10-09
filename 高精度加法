@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<string.h>
+
+char a[600], b[600];
+int A[600], B[600], C[600], temp = 0;
+int lena,lenb,lenc;
+
+int main()
+{
+
+	scanf("%s%s",a,b);
+
+	lena = strlen(a);
+	lenb = strlen(b);
+	
+	for(int i=0; i<lena; i++)
+		A[i] = a[lena-1-i] - '0';
+	for(int i=0; i<lenb; i++)
+		B[i] = b[lenb-1-i] - '0';
+	//lenc = max{lena, lenb}
+	lenc=lena>lenb?lena:lenb;
+	for(int i=0; i<lenc; i++){
+		C[i] = A[i] + B[i] + temp;
+		temp = C[i]/10;
+		C[i] %= 10;
+	}
+	//分类讨论temp是否为0, 并输出
+	if(temp != 0){
+		C[lenc] = temp;
+		for(int i=lenc; i>=0; i--)
+			printf("%d",C[i]);
+	}
+	else{
+		for(int i=lenc-1; i>=0; i--)
+			printf("%d",C[i]);
+	}
+
+	return 0;
+}
