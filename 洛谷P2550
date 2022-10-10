@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main(){
+	int n,zhong = 0;
+	scanf("%d",&n);
+	int jiang[7],piao_j[7], piao_m[7];
+	for(int i=0; i<7; i++){
+		jiang[i] = 0;
+		scanf("%d",&piao_j[i]);
+	}
+	for(int i=0; i<n; i++){
+		for(int j=0; j<7; j++){
+			scanf("%d",&piao_m[j]);
+		}
+		for(int p=0; p<7; p++){
+			for(int q=0; q<7; q++){
+				if(piao_j[q] == piao_m[p])
+					zhong ++;
+			}
+		}
+		switch (zhong) {
+		case 1: jiang[6] ++; break;
+		case 2: jiang[5] ++; break;
+		case 3: jiang[4] ++; break;
+		case 4: jiang[3] ++; break;
+		case 5: jiang[2] ++; break;
+		case 6: jiang[1] ++; break;
+		case 7: jiang[0] ++; break;
+		}
+		zhong = 0;
+	}
+	for(int i=0; i<6; i++){
+		printf("%d ",jiang[i]);
+	}
+	printf("%d",jiang[6]);
+	
+	return 0;
+}
