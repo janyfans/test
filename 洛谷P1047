@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int a[10005];
+int main()
+{
+	int l, m, u, v;
+	
+	scanf("%d%d",&l,&m);
+	//种树
+	for(int i=0; i<=l; i++){
+		a[i] = 1;
+	}
+	for(int i=0; i<m; i++){
+		scanf("%d%d",&u,&v);
+		for(int j=u; j<=v; j++)
+			a[j] = 0;
+	}
+	int count = 0;
+	for(int i=0; i<=l; i++){
+		if(a[i] == 1)
+			count ++;
+	}
+	printf("%d",count);
+	return 0;
+}
